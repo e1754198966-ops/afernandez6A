@@ -1,0 +1,38 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="afernandez6A.Views.vEstudiante"
+             Title="vEstudiante">
+
+    <VerticalStackLayout Spacing="10" Padding="15">
+        <Label 
+            Text="Semana 6: Servicios web - Estudiantes"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="16"
+            FontAttributes="Bold" />
+
+        <!-- Cabecera de la tabla -->
+        <Grid ColumnDefinitions="0.8*, 1.5*, 1.5*, 0.8*" BackgroundColor="Blue" Padding="10">
+            <Label Grid.Column="0" Text="Código" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Label Grid.Column="1" Text="Nombre" FontAttributes="Bold"/>
+            <Label Grid.Column="2" Text="Apellido" FontAttributes="Bold"/>
+            <Label Grid.Column="3" Text="Edad" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+        </Grid>
+
+        <!-- Lista de datos usando CollectionView con Grid -->
+        <CollectionView x:Name="listaEstudiante">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="0.8*, 1.5*, 1.5*, 0.8*" Padding="10" CompressedLayout.IsHeadless="True">
+                        <!-- Asegúrate de que tus propiedades en C# se llamen codigo, nombre, apellido, edad -->
+                        <Label Grid.Column="0" Text="{Binding codigo}" HorizontalTextAlignment="Center"/>
+                        <Label Grid.Column="1" Text="{Binding nombre}"/>
+                        <Label Grid.Column="2" Text="{Binding apellido}"/>
+                        <Label Grid.Column="3" Text="{Binding edad}" HorizontalTextAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>
