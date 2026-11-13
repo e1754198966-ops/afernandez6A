@@ -1,0 +1,74 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="afernandez6A.Views.vActualizarEliminar"
+             Title="vActualizarEliminar">
+
+    <VerticalStackLayout Spacing="20" Padding="20">
+        <Label 
+            Text="ACTUALIZAR - ELIMINAR ESTUDIANTE"
+            VerticalOptions="Center"
+            FontSize="20"
+            FontAttributes="Bold"
+            HorizontalOptions="Center" />
+
+        <!-- PRIMER GRID: Campos de texto (Código, Nombre, Apellido, Edad) -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Fila 0: Código -->
+            <Label Text="CODIGO" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Margin="0,0,10,10"/>
+            <Entry x:Name="txtCodigo" IsEnabled="False" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10"/>
+
+            <!-- Fila 1: Nombre -->
+            <Label Text="NOMBRE" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Margin="0,0,10,10"/>
+            <Entry x:Name="txtNombre" Placeholder="Modificar nombre" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10"/>
+
+            <!-- Fila 2: Apellido -->
+            <Label Text="APELLIDO" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Margin="0,0,10,10"/>
+            <Entry x:Name="txtApellido" Placeholder="MODIFICAR APELLIDO" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10"/>
+
+            <!-- Fila 3: Edad -->
+            <Label Text="EDAD" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Margin="0,0,10,10"/>
+            <Entry x:Name="txtEdad" Placeholder="Modifica la edad" Keyboard="Numeric" Grid.Row="3" Grid.Column="1" Margin="0,0,0,10"/>
+        </Grid>
+
+        <!-- SEGUNDO GRID: Botones Actualizar y Eliminar lado a lado -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btnActualizar" 
+                    Text="Actualizar" 
+                    BackgroundColor="Orange" 
+                    TextColor="White" 
+                    Grid.Row="0" 
+                    Grid.Column="0"
+                    Margin="0,0,5,0"
+                    Clicked="btnActualizar_Clicked" />
+
+            <Button x:Name="btnEliminar" 
+                    Text="Eliminar" 
+                    BackgroundColor="Red" 
+                    TextColor="White" 
+                    Grid.Row="0" 
+                    Grid.Column="1"
+                    Margin="5,0,0,0"
+                    Clicked="btnEliminar_Clicked" />
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentPage>

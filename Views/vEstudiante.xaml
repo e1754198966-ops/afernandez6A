@@ -11,6 +11,13 @@
             FontSize="16"
             FontAttributes="Bold" />
 
+        <!-- Botón para ir a agregar -->
+        <Button x:Name="btnIrAgregar" 
+                Text="Agregar Estudiante" 
+                BackgroundColor="Green" 
+                TextColor="White" 
+                Clicked="btnIrAgregar_Clicked" />
+
         <!-- Cabecera de la tabla -->
         <Grid ColumnDefinitions="0.8*, 1.5*, 1.5*, 0.8*" BackgroundColor="Blue" Padding="10">
             <Label Grid.Column="0" Text="Código" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
@@ -19,12 +26,13 @@
             <Label Grid.Column="3" Text="Edad" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
         </Grid>
 
-        <!-- Lista de datos usando CollectionView con Grid -->
-        <CollectionView x:Name="listaEstudiante">
+        <!-- CollectionView con selección activada -->
+        <CollectionView x:Name="listaEstudiante" 
+                          SelectionMode="Single" 
+                          SelectionChanged="listaEstudiante_SelectionChanged">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid ColumnDefinitions="0.8*, 1.5*, 1.5*, 0.8*" Padding="10" CompressedLayout.IsHeadless="True">
-                        <!-- Asegúrate de que tus propiedades en C# se llamen codigo, nombre, apellido, edad -->
                         <Label Grid.Column="0" Text="{Binding codigo}" HorizontalTextAlignment="Center"/>
                         <Label Grid.Column="1" Text="{Binding nombre}"/>
                         <Label Grid.Column="2" Text="{Binding apellido}"/>
